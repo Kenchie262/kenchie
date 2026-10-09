@@ -288,6 +288,25 @@ main {
     transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .45s ease, opacity .3s ease;
 }
 
+/* Hover feedback stays active while banners remain click-to-open. */
+.member-card:not(.open) {
+    cursor: pointer;
+}
+
+.member-card:not(.open):hover,
+.member-card:not(.open):focus-visible {
+    transform: translateY(-5px) scale(1.015);
+    border-color: rgba(255, 255, 255, .72);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, .48), 0 0 18px rgba(255, 255, 255, .12);
+    outline: none;
+}
+
+.member-card:not(.open):hover .member-thumb,
+.member-card:not(.open):focus-visible .member-thumb {
+    filter: brightness(.82) saturate(1.05);
+    transform: scale(1.06);
+}
+
 /* Hovering a member opens a smaller, smoother focused profile view. */
 .member-card {
     transition:
